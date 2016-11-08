@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orthodox Presbyterian Church</title>
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="/style-2014a.css" />
+<link rel="stylesheet" type="text/css" href="/topmenus.css" />
+<link rel="stylesheet" type="text/css" href="/stylemaps-2014.css" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 10]>
+	<link rel="stylesheet" type="text/css" href="/style-2014a-ie9.css" />
+<![endif]-->
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="/style-2014a-ie8.css" />
+<![endif]-->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/DSI-baselib.js"></script>
+<script type="text/javascript" src="/js/DSI-menulib-2014.js"></script>
+<script type="text/javascript" src="/js/opcreader.js"></script>
+<script type="text/javascript">
+   var optionsWWO = [
+         {href:"/committee_ce.html",text:"Christian Education",target:""},
+         {href:"/committee_fm.html",text:"Foreign Missions",target:""},
+         {href:"/committee_hm.html",text:"Home Missions",target:""}
+         ];
+   var optionsMinistries = [ 
+         {href:"/chaplain/index.html",text:"Chaplains and Military Personnel",target:""},
+         {href:"/committee_dm.html",text:"Diaconal Ministries",target:""},
+         {href:"/historian.html",text:"Historian",target:""},
+         {href:"/icr.html",text:"Inter-Church Relations",target:""},
+         {href:"/pensions/",text:"Pensions",target:""},
+         {href:"/opcgifts.html",text:"Planned Giving",target:""},
+         {href:"http://www.opcstm.org/",text:"Short-Term Missions",target:""}
+         ];
+
+   var optionsStandards  = [ {text:"Searchable Bible", href:"/bible.html",target:""},
+                             {text:"Confessions and Catechisms", href:"/confessions.html",target:""},
+                             {text:"Book of Church Order", href:"/order.html",target:""}
+         ];
+   var optionsResources  = [
+         {href:"/locator.html",text:"Church Directory",target:""},
+         {href:"/devotional.html",text:"Daily Devotional",target:""},
+         {href:"/audiosermons.html",text:"Audio Sermons",target:""},
+         {href:"/hymnal.html",text:"Trinity Hymnal",target:""},
+         {href:"/cce/camps.html",text:"Camps and Conferences",target:""},
+         {href:"/goodnews.html",text:"Gospel Tracts",target:""},
+         {href:"/review.html?target=latest",text:"Book Reviews",target:""},
+         {href:"https://store.opc.org/",text:"Publications",target:""},
+         {href:"/newsletter.html",text:"Newsletter",target:""},
+         {href:"/guardian.html",text:"Presbyterian Guardian",target:""},
+         {href:"/about.html",text:"About the OPC",target:""}
+   ];
+
+
+   function moveFooter() {
+      //
+      // One time only during page load, if the resize the page we're not going to readjust
+      //
+      var wh  = $(window).height();
+      var rh  = $("div.root").height();
+      var rbh = $("div.rootbottom").height();
+      var mh  = $("#theMain").height();
+      var mt  = $("#theMain")[0].offsetTop;
+      var fixup = wh - (mh+mt+rbh+30); // add 30 for the margins 
+      if (fixup > 0) {
+         $("div.printMe")[0].style.paddingTop = fixup + "px";
+         console.log("Setting Padding to " + fixup + "px");
+      }
+   }
+
+
+   function init() {       
+      topMenus = new DSIMenu("topMenus","msrMenu");
+      topMenus.init();
+      topMenus.loadMenuData("tmWWO", optionsWWO,"",0);
+      topMenus.loadMenuData("tmMinistries", optionsMinistries,"",0);
+      topMenus.loadMenuData("tmStandards", optionsStandards,"",0);
+      topMenus.loadMenuData("tmResources", optionsResources,"",0);
+      topMenus.makeMenus();
+      $(window).resize(function() {
+                                    if ($("body").width() > 1050) {
+                                       $("#theMain").removeClass("dropRightMargin");
+                                    } else {
+                                       $("#theMain").addClass("dropRightMargin");
+                                    }
+                                    if (readerIsActive()) {
+                                       readerResize();
+                                    }
+                                  });
+     if ($("body").width() > 1050) {
+        $("#theMain").removeClass("dropRightMargin");
+     } else {
+        $("#theMain").addClass("dropRightMargin");
+     }
+    setTimeout(function() {moveFooter()},200); 
+       };
+
+   $(document).ready(function() {init();});
+
+</script>
+
+<link rel="alternate" title="OPC Daily Devotional" href="/devotional.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC Book Reviews" href="/review.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC Features" href="/features.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC News" href="/news.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC Questions and Answers" href="/qa.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC New Horizons" href="/nh.rss" type="application/rss+xml" />
+<link rel="alternate" title="OPC Ordained Servant" href="/os.rss" type="application/rss+xml" />
+</head>
+<body>
+<div class="root">
+  <div id="topBubbles">
+    <span class="topBubble">
+      <img alt="CON" class="icon" src="/images/style2014/ellipsis-bubble.png" />
+       <a href="/contact_info_page.html">Contact Us</a>
+    </span>
+    <span class="topBubble">
+      <img alt="DON" class="icon" src="/images/style2014/dollar-sign-bubble.png" />
+       <a href="/donations.html">Donate</a>
+    </span>
+  </div>
+    <a class="opcLogo" href="/"><img class="opcLogo" src="/images/style2014/logo-color.svg" onerror='this.onerror = null; this.src="/images/style2014/logo-color.png";' alt="OPC" /></a>
+    <a class="opcLogo" href="/"><img class="opcTitle" src="/images/style2014/opc-header.svg"onerror='this.onerror = null; this.src="/images/style2014/opc-header-highres.png";' alt="The Orthodox Presbyterian Church" /></a>
+  <div id="theTop">
+    <div id="topMenuOuter">
+        <div class="topMenu">
+         <span class="topMenu">
+            <a class="topMenu" href="/historian.html">Our History</a>
+         </span>
+         <span class="topMenu">
+             <a class="topMenu" href="/ga.html">General Assembly</a>
+         </span>
+         <span class="topMenu" style="width:210px"><a href="/committee_wwo.html" id="tmWWO" class="msrMenu">Worldwide&nbsp;Outreach</a></span>
+         <span class="topMenu"><span id="tmMinistries" class="msrMenu">Ministries</span></span>
+         <span class="topMenu"><span id="tmStandards" class="msrMenu">Standards</span></span>
+         <span class="topMenu"><span id="tmResources" class="msrMenu">Resources</span></span>
+         </div>
+     </div>
+  </div>
+<div id="breadcrumb"><a href="index.html">Home</a> <span>&#187;</span> <a href="hymnal.html">Trinity Hymnal Resources</a> <span>&#187;</span> Hymn</div>  <div id="theMain" class="theMain insidePage">
+
+<p class="nav"><a href="/hymn.html?target=archive">Archive of All Entries</a> </p>
+
+
+<h1>Trinity Hymnal</h1>
+
+<h3>Dying with Jesus, by death reckoned mine&nbsp;&#8212;&nbsp;Moment by Moment</h3>
+
+<div class="midiplayer">
+<audio controls height="60" width="145">
+  <source src="books/TH/MP3/Th1_708.mp3" />
+  <source src="books/TH/MP3/Th1_708.ogg" />
+  <!-- fallback -->
+  <embed src="books/TH/MP3/Th1_708.mp3" controls="console" width="145" height="25" autostart="false" loop="false"></embed>
+</audio>
+</div>
+
+<p>
+Original  Trinity Hymnal, #708<br /><br />Dying with Jesus, by death reckoned mine;<br />Living with Jesus, a new life divine;<br />Looking to Jesus till glory doth shine,<br />Moment by moment, O Lord, I am thine.<br /><br />Moment by moment, I'm kept in his love;<br />Moment by moment, I've life from above;<br />Looking to Jesus till glory doth shine,<br />Moment by moment, O Lord, I am thine.<br /><br />Never a trial that he is not there,<br />Never a burden that he doth not bear,<br />Never a sorrow that he doth not share,<br />Moment by moment, I'm under his care.<br /><br />Never a weakness that he doth not feel,<br />Never a sickness that he cannot heal;<br />Moment by moment, in woe or in weal,<br />Jesus my Saviour, abides with me still.<br /><br /></p>
+
+<h3 class="divider"></h3>
+
+<p>Page number: Blue 708, <a href="books/TH/MIDI/Th1_708.mid">Right-Click Here to Download MIDI File</a></p>
+
+
+<div class="printMe"><a class="printMe" href="/hymn.html?hymn_id=157&pfriendly=Y&ret=L2h5bW4uaHRtbD9oeW1uX2lkPTE1Nw%3D%3D">Printer Friendly</a></div>  </div>
+</div>
+<div class="rootbottom">
+  <div id="theBottom">
+     <div class="logoBottom">
+      <a class="logoBottom" href="/"><img alt="OPC" class="logoBottom" src="/images/style2014/logo-mono.svg" onerror='this.onerror = null; this.src="/images/style2014/logo-mono.png";'/></a>
+     </div>   
+   <table class="linksBottom">
+     <tbody>
+      <tr>
+       <td class="bottomCopyright">
+         &copy; 2016 The Orthodox Presbyterian Church
+        <div class="siteSearchFooter">
+           <form action="/search.html" method="post" name="sitesearch">
+             <span>
+               <input class="siteSearch" type="text" size="20" maxlength="100" name="keywords" value="" placeholder="Search OPC.org" />
+               <span class="siteSearchPrompt"> <img src="/images/style2014/search-bubble.png" alt="o" /></span>
+             </span>
+          </form>
+         <p class="siteSearchPrompt">Search OPC.org</p>
+        </div>
+       </td>
+       <td class="linksBottom">
+         <p>MINISTRIES</p>
+         <p> <a class="linksBottom" href="/chaplain/index.html">Chaplains and Military Personnel</a></p>
+         <p> <a class="linksBottom" href="/committee_dm.html">Diaconal Ministries</a></p>
+         <p> <a class="linksBottom" href="/historian.html">Historian</a></p>
+         <p> <a class="linksBottom" href="/icr.html">Inter-Church Relations</a></p>
+         <p> <a class="linksBottom" href="/pensions/">Pensions</a></p>
+         <p> <a class="linksBottom" href="/opcgifts.html">Planned Giving</a></p>
+         <p> <a class="linksBottom" href="http://www.opcstm.org/">Short-Term Missions</a></p>
+       </td>
+       <td class="linksBottom">
+         <p>RESOURCES</p>
+         <p> <a class="linksBottom" href="/locator.html">Church Directory</a></p>
+         <p> <a class="linksBottom" href="/devotional.html">Daily Devotional</a></p>
+         <p> <a class="linksBottom" href="/audiosermons.html">Audio Sermons</a></p>
+         <p> <a class="linksBottom" href="/hymnal.html">Trinity Hymnal</a></p>
+         <p> <a class="linksBottom" href="/cce/camps.html">Camps &amp; Conferences</a></p>
+         <p> <a class="linksBottom" href="/goodnews.html">Gospel Tracts</a></p>
+         <p> <a class="linksBottom" href="/review.html?target=latest">Book Reviews</a></p>
+         <p> <a class="linksBottom" href="https://store.opc.org/">Publications</a></p>
+         <p> <a class="linksBottom" href="/newsletter.html">Newsletter</a></p>
+         <p> <a class="linksBottom" href="/guardian.html">Presbyterian Guardian</a></p>
+         <!--<p> <a class="linksBottom" href="#">OPC Videos</a></p> -->
+       </td>
+      </tr>
+     </tbody>
+   </table>
+  </div>
+</div>
+</body>
+</html>
+
+
